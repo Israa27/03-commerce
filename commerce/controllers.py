@@ -9,10 +9,10 @@ def gitProducts(request):
     product_item= Product.objects.all()
     product_list = []
     for product in product_item:
-     vendor=product.vendor.name
-     merchant=product.merchant.name
-     category=product.category.name
-     label=product.label.name
+     vendor={'name':product.vendor.name}
+     merchant={'name':product.merchant.name}
+     category={'name':product.category.name,'description':product.category.description,'is_active':product.category.is_active}
+     label={'name':product.label.name}
      
      product_list.append({'name' : product.name, 'description' : product.description,
       "weight" : product.weight, "width" : product.width , "height" : product.height ,
